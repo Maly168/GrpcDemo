@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+option csharp_namespace = "GrpcDemo";
+
+service HolidayInfo {
+  rpc GetHoliday (HolidayInfoRequest) returns (HolidayInfoResponse);
+}
+
+message HolidayInfoRequest {
+  int32 year = 1;
+  string country = 2;
+}
+
+message HolidayInfoResponse {
+  repeated dateInfo date = 1;
+  repeated nameInfo name = 2;
+  string holiday_type = 3;
+
+  message nameInfo
+  {
+	string lang = 1;
+	string text = 2;
+  }
+  message dateInfo 
+  {
+	int32 day = 1;
+	int32 month = 2;
+	int32 year = 3;
+	int32 day_of_week = 4;
+  }
+}
