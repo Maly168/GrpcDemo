@@ -11,10 +11,15 @@ message HolidayInfoRequest {
 }
 
 message HolidayInfoResponse {
-  repeated dateInfo date = 1;
-  repeated nameInfo name = 2;
-  string holiday_type = 3;
+  
+	repeated HolidayInfoData holiday_info = 1;
 
+  message HolidayInfoData
+  {
+	repeated dateInfo date = 1;
+	repeated nameInfo name = 2;
+	string holiday_type = 3;
+  }
   message nameInfo
   {
 	string lang = 1;

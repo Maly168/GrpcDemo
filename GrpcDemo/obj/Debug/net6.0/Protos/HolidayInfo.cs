@@ -25,20 +25,23 @@ namespace GrpcDemo {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhQcm90b3MvSG9saWRheUluZm8ucHJvdG8iMwoSSG9saWRheUluZm9SZXF1",
-            "ZXN0EgwKBHllYXIYASABKAUSDwoHY291bnRyeRgCIAEoCSL4AQoTSG9saWRh",
-            "eUluZm9SZXNwb25zZRIrCgRkYXRlGAEgAygLMh0uSG9saWRheUluZm9SZXNw",
-            "b25zZS5kYXRlSW5mbxIrCgRuYW1lGAIgAygLMh0uSG9saWRheUluZm9SZXNw",
-            "b25zZS5uYW1lSW5mbxIUCgxob2xpZGF5X3R5cGUYAyABKAkaJgoIbmFtZUlu",
-            "Zm8SDAoEbGFuZxgBIAEoCRIMCgR0ZXh0GAIgASgJGkkKCGRhdGVJbmZvEgsK",
-            "A2RheRgBIAEoBRINCgVtb250aBgCIAEoBRIMCgR5ZWFyGAMgASgFEhMKC2Rh",
-            "eV9vZl93ZWVrGAQgASgFMkYKC0hvbGlkYXlJbmZvEjcKCkdldEhvbGlkYXkS",
-            "Ey5Ib2xpZGF5SW5mb1JlcXVlc3QaFC5Ib2xpZGF5SW5mb1Jlc3BvbnNlQguq",
-            "AghHcnBjRGVtb2IGcHJvdG8z"));
+            "ZXN0EgwKBHllYXIYASABKAUSDwoHY291bnRyeRgCIAEoCSLIAgoTSG9saWRh",
+            "eUluZm9SZXNwb25zZRI6Cgxob2xpZGF5X2luZm8YASADKAsyJC5Ib2xpZGF5",
+            "SW5mb1Jlc3BvbnNlLkhvbGlkYXlJbmZvRGF0YRqBAQoPSG9saWRheUluZm9E",
+            "YXRhEisKBGRhdGUYASADKAsyHS5Ib2xpZGF5SW5mb1Jlc3BvbnNlLmRhdGVJ",
+            "bmZvEisKBG5hbWUYAiADKAsyHS5Ib2xpZGF5SW5mb1Jlc3BvbnNlLm5hbWVJ",
+            "bmZvEhQKDGhvbGlkYXlfdHlwZRgDIAEoCRomCghuYW1lSW5mbxIMCgRsYW5n",
+            "GAEgASgJEgwKBHRleHQYAiABKAkaSQoIZGF0ZUluZm8SCwoDZGF5GAEgASgF",
+            "Eg0KBW1vbnRoGAIgASgFEgwKBHllYXIYAyABKAUSEwoLZGF5X29mX3dlZWsY",
+            "BCABKAUyRgoLSG9saWRheUluZm8SNwoKR2V0SG9saWRheRITLkhvbGlkYXlJ",
+            "bmZvUmVxdWVzdBoULkhvbGlkYXlJbmZvUmVzcG9uc2VCC6oCCEdycGNEZW1v",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoRequest), global::GrpcDemo.HolidayInfoRequest.Parser, new[]{ "Year", "Country" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoResponse), global::GrpcDemo.HolidayInfoResponse.Parser, new[]{ "Date", "Name", "HolidayType" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoResponse.Types.nameInfo), global::GrpcDemo.HolidayInfoResponse.Types.nameInfo.Parser, new[]{ "Lang", "Text" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoResponse), global::GrpcDemo.HolidayInfoResponse.Parser, new[]{ "HolidayInfo" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData), global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData.Parser, new[]{ "Date", "Name", "HolidayType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoResponse.Types.nameInfo), global::GrpcDemo.HolidayInfoResponse.Types.nameInfo.Parser, new[]{ "Lang", "Text" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GrpcDemo.HolidayInfoResponse.Types.dateInfo), global::GrpcDemo.HolidayInfoResponse.Types.dateInfo.Parser, new[]{ "Day", "Month", "Year", "DayOfWeek" }, null, null, null, null)})
           }));
     }
@@ -283,9 +286,7 @@ namespace GrpcDemo {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HolidayInfoResponse(HolidayInfoResponse other) : this() {
-      date_ = other.date_.Clone();
-      name_ = other.name_.Clone();
-      holidayType_ = other.holidayType_;
+      holidayInfo_ = other.holidayInfo_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -294,35 +295,14 @@ namespace GrpcDemo {
       return new HolidayInfoResponse(this);
     }
 
-    /// <summary>Field number for the "date" field.</summary>
-    public const int DateFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo> _repeated_date_codec
-        = pb::FieldCodec.ForMessage(10, global::GrpcDemo.HolidayInfoResponse.Types.dateInfo.Parser);
-    private readonly pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo> date_ = new pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo>();
+    /// <summary>Field number for the "holiday_info" field.</summary>
+    public const int HolidayInfoFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData> _repeated_holidayInfo_codec
+        = pb::FieldCodec.ForMessage(10, global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData.Parser);
+    private readonly pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData> holidayInfo_ = new pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo> Date {
-      get { return date_; }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo> _repeated_name_codec
-        = pb::FieldCodec.ForMessage(18, global::GrpcDemo.HolidayInfoResponse.Types.nameInfo.Parser);
-    private readonly pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo> name_ = new pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo> Name {
-      get { return name_; }
-    }
-
-    /// <summary>Field number for the "holiday_type" field.</summary>
-    public const int HolidayTypeFieldNumber = 3;
-    private string holidayType_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string HolidayType {
-      get { return holidayType_; }
-      set {
-        holidayType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
+    public pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.HolidayInfoData> HolidayInfo {
+      get { return holidayInfo_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -338,18 +318,14 @@ namespace GrpcDemo {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!date_.Equals(other.date_)) return false;
-      if(!name_.Equals(other.name_)) return false;
-      if (HolidayType != other.HolidayType) return false;
+      if(!holidayInfo_.Equals(other.holidayInfo_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= date_.GetHashCode();
-      hash ^= name_.GetHashCode();
-      if (HolidayType.Length != 0) hash ^= HolidayType.GetHashCode();
+      hash ^= holidayInfo_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -366,12 +342,7 @@ namespace GrpcDemo {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      date_.WriteTo(output, _repeated_date_codec);
-      name_.WriteTo(output, _repeated_name_codec);
-      if (HolidayType.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(HolidayType);
-      }
+      holidayInfo_.WriteTo(output, _repeated_holidayInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -381,12 +352,7 @@ namespace GrpcDemo {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      date_.WriteTo(ref output, _repeated_date_codec);
-      name_.WriteTo(ref output, _repeated_name_codec);
-      if (HolidayType.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(HolidayType);
-      }
+      holidayInfo_.WriteTo(ref output, _repeated_holidayInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -396,11 +362,7 @@ namespace GrpcDemo {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += date_.CalculateSize(_repeated_date_codec);
-      size += name_.CalculateSize(_repeated_name_codec);
-      if (HolidayType.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(HolidayType);
-      }
+      size += holidayInfo_.CalculateSize(_repeated_holidayInfo_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -412,11 +374,7 @@ namespace GrpcDemo {
       if (other == null) {
         return;
       }
-      date_.Add(other.date_);
-      name_.Add(other.name_);
-      if (other.HolidayType.Length != 0) {
-        HolidayType = other.HolidayType;
-      }
+      holidayInfo_.Add(other.holidayInfo_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -432,15 +390,7 @@ namespace GrpcDemo {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            date_.AddEntriesFrom(input, _repeated_date_codec);
-            break;
-          }
-          case 18: {
-            name_.AddEntriesFrom(input, _repeated_name_codec);
-            break;
-          }
-          case 26: {
-            HolidayType = input.ReadString();
+            holidayInfo_.AddEntriesFrom(input, _repeated_holidayInfo_codec);
             break;
           }
         }
@@ -458,15 +408,7 @@ namespace GrpcDemo {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            date_.AddEntriesFrom(ref input, _repeated_date_codec);
-            break;
-          }
-          case 18: {
-            name_.AddEntriesFrom(ref input, _repeated_name_codec);
-            break;
-          }
-          case 26: {
-            HolidayType = input.ReadString();
+            holidayInfo_.AddEntriesFrom(ref input, _repeated_holidayInfo_codec);
             break;
           }
         }
@@ -478,6 +420,228 @@ namespace GrpcDemo {
     /// <summary>Container for nested types declared in the HolidayInfoResponse message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
+      public sealed partial class HolidayInfoData : pb::IMessage<HolidayInfoData>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
+        private static readonly pb::MessageParser<HolidayInfoData> _parser = new pb::MessageParser<HolidayInfoData>(() => new HolidayInfoData());
+        private pb::UnknownFieldSet _unknownFields;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<HolidayInfoData> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::GrpcDemo.HolidayInfoResponse.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public HolidayInfoData() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public HolidayInfoData(HolidayInfoData other) : this() {
+          date_ = other.date_.Clone();
+          name_ = other.name_.Clone();
+          holidayType_ = other.holidayType_;
+          _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public HolidayInfoData Clone() {
+          return new HolidayInfoData(this);
+        }
+
+        /// <summary>Field number for the "date" field.</summary>
+        public const int DateFieldNumber = 1;
+        private static readonly pb::FieldCodec<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo> _repeated_date_codec
+            = pb::FieldCodec.ForMessage(10, global::GrpcDemo.HolidayInfoResponse.Types.dateInfo.Parser);
+        private readonly pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo> date_ = new pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo>();
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.dateInfo> Date {
+          get { return date_; }
+        }
+
+        /// <summary>Field number for the "name" field.</summary>
+        public const int NameFieldNumber = 2;
+        private static readonly pb::FieldCodec<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo> _repeated_name_codec
+            = pb::FieldCodec.ForMessage(18, global::GrpcDemo.HolidayInfoResponse.Types.nameInfo.Parser);
+        private readonly pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo> name_ = new pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo>();
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public pbc::RepeatedField<global::GrpcDemo.HolidayInfoResponse.Types.nameInfo> Name {
+          get { return name_; }
+        }
+
+        /// <summary>Field number for the "holiday_type" field.</summary>
+        public const int HolidayTypeFieldNumber = 3;
+        private string holidayType_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string HolidayType {
+          get { return holidayType_; }
+          set {
+            holidayType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as HolidayInfoData);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(HolidayInfoData other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if(!date_.Equals(other.date_)) return false;
+          if(!name_.Equals(other.name_)) return false;
+          if (HolidayType != other.HolidayType) return false;
+          return Equals(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          hash ^= date_.GetHashCode();
+          hash ^= name_.GetHashCode();
+          if (HolidayType.Length != 0) hash ^= HolidayType.GetHashCode();
+          if (_unknownFields != null) {
+            hash ^= _unknownFields.GetHashCode();
+          }
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
+          date_.WriteTo(output, _repeated_date_codec);
+          name_.WriteTo(output, _repeated_name_codec);
+          if (HolidayType.Length != 0) {
+            output.WriteRawTag(26);
+            output.WriteString(HolidayType);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(output);
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          date_.WriteTo(ref output, _repeated_date_codec);
+          name_.WriteTo(ref output, _repeated_name_codec);
+          if (HolidayType.Length != 0) {
+            output.WriteRawTag(26);
+            output.WriteString(HolidayType);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          size += date_.CalculateSize(_repeated_date_codec);
+          size += name_.CalculateSize(_repeated_name_codec);
+          if (HolidayType.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(HolidayType);
+          }
+          if (_unknownFields != null) {
+            size += _unknownFields.CalculateSize();
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(HolidayInfoData other) {
+          if (other == null) {
+            return;
+          }
+          date_.Add(other.date_);
+          name_.Add(other.name_);
+          if (other.HolidayType.Length != 0) {
+            HolidayType = other.HolidayType;
+          }
+          _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+                break;
+              case 10: {
+                date_.AddEntriesFrom(input, _repeated_date_codec);
+                break;
+              }
+              case 18: {
+                name_.AddEntriesFrom(input, _repeated_name_codec);
+                break;
+              }
+              case 26: {
+                HolidayType = input.ReadString();
+                break;
+              }
+            }
+          }
+        #endif
+        }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                date_.AddEntriesFrom(ref input, _repeated_date_codec);
+                break;
+              }
+              case 18: {
+                name_.AddEntriesFrom(ref input, _repeated_name_codec);
+                break;
+              }
+              case 26: {
+                HolidayType = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
+
+      }
+
       public sealed partial class nameInfo : pb::IMessage<nameInfo>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -490,7 +654,7 @@ namespace GrpcDemo {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::GrpcDemo.HolidayInfoResponse.Descriptor.NestedTypes[0]; }
+          get { return global::GrpcDemo.HolidayInfoResponse.Descriptor.NestedTypes[1]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -698,7 +862,7 @@ namespace GrpcDemo {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static pbr::MessageDescriptor Descriptor {
-          get { return global::GrpcDemo.HolidayInfoResponse.Descriptor.NestedTypes[1]; }
+          get { return global::GrpcDemo.HolidayInfoResponse.Descriptor.NestedTypes[2]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
